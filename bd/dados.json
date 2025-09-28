@@ -1,0 +1,14 @@
+[
+  {
+    "nomeEmpresa": "marke",
+    "dataInscricao": "10/10",
+    "status": "aprovado",
+    "cargo": "junior"
+  },
+  {
+    "nomeEmpresa": "shutdown",
+    "dataInscricao": "09/12",
+    "status": "analise",
+    "cargo": "pleno"
+  }
+]
