@@ -29,8 +29,4 @@ const criarCandidatura = (nome, inscricao, statos, cargo) => {
     const candidaturas = carregar();
     candidaturas.push(new Candidatura(nome, inscricao, statos, cargo))
     salvarCandidatura(candidaturas)
-    console.log(`candidatura ${nome} salva`);
-    
 }
-
-criarCandidatura("shutdown", "09/12", "analise", "pleno")
