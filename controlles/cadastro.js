@@ -1,8 +1,9 @@
+import { log } from "console";
 import fs from "fs"
 const caminho = '../bd/dados.json'
 
 // Função para carregar as candidaturas
-const carregar = () => { 
+export const carregar = () => { 
     if(fs.existsSync(caminho)){
         return JSON.parse(fs.readFileSync(caminho, "utf-8"));
     }

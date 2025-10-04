@@ -10,5 +10,11 @@
     "dataInscricao": "09/12",
     "status": "analise",
     "cargo": "pleno"
+  },
+  {
+    "nomeEmpresa": "Any",
+    "dataInscricao": "04/24",
+    "status": "aprovado",
+    "cargo": "padeiro"
   }
 ]
