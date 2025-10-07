@@ -19,5 +19,4 @@ const listarCandidaturas = () => {
     });
 
 }
-console.log("listarCandidaturas:");
 listarCandidaturas();

@@ -10,5 +10,11 @@
     "dataInscricao": "10/10",
     "status": "REPROVADO",
     "cargo": "BACKEND"
+  },
+  {
+    "nomeEmpresa": "AMAZON",
+    "dataInscricao": "10/07",
+    "status": "NÃO INICIADO",
+    "cargo": "FRONTEND"
   }
 ]

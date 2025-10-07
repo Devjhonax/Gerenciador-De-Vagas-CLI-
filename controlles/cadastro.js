@@ -50,4 +50,4 @@ const criarCandidatura = (nome, inscricao, status, cargo) => {
     }
 }
 
-criarCandidatura("Miker", "10/10", "aprovado", "backend")
+criarCandidatura("Amazon", "10/07", "não iniciado", "frontend")
