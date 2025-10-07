@@ -10,5 +10,11 @@
     "dataInscricao": "10/10",
     "status": "REPROVADO",
     "cargo": "BACKEND"
+  },
+  {
+    "nomeEmpresa": "LEGADO",
+    "dataInscricao": "06/10",
+    "status": "EM ANALISE",
+    "cargo": "BACKEND"
   }
 ]
