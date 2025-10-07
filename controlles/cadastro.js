@@ -26,8 +26,28 @@ class Candidatura {
 }
 
 // função que salva a candidatura no banco de dados
-const criarCandidatura = (nome, inscricao, statos, cargo) => {
+const criarCandidatura = (nome, inscricao, status, cargo) => {
     const candidaturas = carregar();
-    candidaturas.push(new Candidatura(nome, inscricao, statos, cargo))
-    salvarCandidatura(candidaturas)
+
+    if (nome === undefined || inscricao === undefined || status === undefined || cargo === undefined) {
+        console.error("Campo vazio, por favor preencha todos os campos.")
+    } else {
+        const name = nome.toUpperCase()
+        const dataEntrada = inscricao.toString()
+        const andamento = status.toUpperCase()
+        const setor = cargo.toUpperCase()
+
+        const validarCandidatura = candidaturas.some(candidatura => candidatura.nomeEmpresa === name && candidatura.cargo === setor)
+
+        if (validarCandidatura) {
+            console.error("Esta candidatura já foi cadastrada.")
+            return;
+        } else {
+            candidaturas.push(new Candidatura(name, dataEntrada, andamento, setor))
+            salvarCandidatura(candidaturas)
+            console.log("Sua candidatura foi salva com sucesso!");
+        }
+    }
 }
+
+criarCandidatura("Miker", "10/10", "aprovado", "backend")
