@@ -12,12 +12,10 @@ const listarCandidaturas = () => {
     console.log("\n=== LISTA DE CANDIDATURAS ===");
     candidaturas.forEach((candidatura, index) => {
         console.log(`\nCandidatura ${index + 1}:`);
+        console.log(`Id: ${candidatura.id}`);
         console.log(`Empresa: ${candidatura.nomeEmpresa}`);
         console.log(`Data de Inscrição: ${candidatura.dataInscricao}`);
-        console.log(`Status: ${candidatura.status}`);
         console.log(`Cargo: ${candidatura.cargo}`);
+        console.log(`Status: ${candidatura.status}`);
     });
-
 }
-console.log("listarCandidaturas:");
-listarCandidaturas();

@@ -1,7 +1,7 @@
 import fs from "fs"
 const caminho = '../bd/usuarios.json'
 
-// Função para carregar os usuarios
+// Função para carregar os usuários
 export const carregar = () => {
     if (fs.existsSync(caminho)) {
         return JSON.parse(fs.readFileSync(caminho, "utf-8"));
@@ -9,12 +9,12 @@ export const carregar = () => {
     return []
 }
 
-// Função para salvar os usuarios
+// Função para salvar os usuários
 const saveUser = (dados) => {
     fs.writeFileSync(caminho, JSON.stringify(dados, null, 2), "utf8");
 }
 
-// class de candidatura 
+// class usuários
 class User {
     constructor(name, email, password) {
         this.name = name
@@ -23,7 +23,7 @@ class User {
     }
 }
 
-// função que salva o usuario no banco de dados
+// função que salva o usuário no banco de dados
 const makeUsers = (name, email, password) => {
     const users = carregar();
 
