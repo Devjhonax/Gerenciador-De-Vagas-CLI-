@@ -57,3 +57,5 @@ const criarCandidatura = (nome, inscricao, cargo, status) => {
         }
     }
 }
+
+criarCandidatura("Ibiapina", "06/10", "Frontend", "Aprovado");
