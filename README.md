@@ -13,19 +13,19 @@ Com ele, você pode cadastrar todas as aplicações que realizou, registrar deta
 
 ## 📁 Estrutura de Pastas
 
-┣ 📂bd
-┃ ┣ 📜dados.json
-┃ ┗ 📜usuarios.json
-┣ 📂controlles
-┃ ┣ 📜atualizar.js
-┃ ┣ 📜buscar.js
-┃ ┣ 📜cadastro.js
-┃ ┣ 📜cadastroUsers.js
-┃ ┣ 📜listagem-de-candidaturas.js
-┃ ┗ 📜validacaoUser.js
-┣ 📜index.js
-┣ 📜package.json
-┣ 📜README.md
+- ┣ 📂bd
+- ┃ ┣ 📜dados.json
+- ┃ ┗ 📜usuarios.json
+- ┣ 📂controlles
+- ┃ ┣ 📜atualizar.js
+- ┃ ┣ 📜buscar.js
+- ┃ ┣ 📜cadastro.js
+- ┃ ┣ 📜cadastroUsers.js
+- ┃ ┣ 📜listagem-de-candidaturas.js
+- ┃ ┗ 📜validacaoUser.js
+- ┣ 📜index.js
+- ┣ 📜package.json
+- ┣ 📜README.md
 
 🔐 Funcionalidades
 -Cadastro de usuários
@@ -45,6 +45,6 @@ Com ele, você pode cadastrar todas as aplicações que realizou, registrar deta
 1. Clone o repositório.
 2. Entre na pasta e rode o arquivo "index.js"
 
-👤 Autores
-Lider do projeto: Jhonathas
-Colaboradores: Thayane, André, Cauã, Eduarda e Geiza
+👤 Autores.
+- Lider do projeto: Jhonathas
+- Colaboradores: Thayane, André, Cauã, Eduarda e Geiza
