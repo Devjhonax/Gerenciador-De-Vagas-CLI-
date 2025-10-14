@@ -1,18 +1,16 @@
 import { carregar } from "./cadastro.js";
 
-// Carrega todas as candidaturas cadastradas
-const candidaturas = carregar();
-
-if (candidaturas.length === 0) {
-  console.log("Não existe nenhuma candidatura cadastrada para buscar.");
-}
-
 // função para buscar a candidatura pelo nome da empresa
-const buscarNome = (nome) => {
+const buscarNome = (nome, usuarioLogado) => {
+  const candidaturas = carregar();
+
+  // Filtra as candidaturas do usuário logado antes de fazer a busca
+  const candidaturasDoUsuario = candidaturas.filter(vaga => vaga.usuario === usuarioLogado);
+
   const entrada = nome.toUpperCase()
   let encontrada = false
 
-  candidaturas.forEach((vaga) => {
+  candidaturasDoUsuario.forEach((vaga) => {
     if (vaga.nomeEmpresa === entrada) {
       encontrada = true
       console.log(`\nId: ${vaga.id}`);
@@ -29,11 +27,14 @@ const buscarNome = (nome) => {
 }
 
 // função para buscar a candidatura pelo cargo
-const buscarCargo = (cargo) => {
+const buscarCargo = (cargo, usuarioLogado) => {
+  const candidaturas = carregar();
+  const candidaturasDoUsuario = candidaturas.filter(vaga => vaga.usuario === usuarioLogado);
+
   const entrada = cargo.toUpperCase()
   let encontrado = false
 
-  candidaturas.forEach((vaga) => {
+  candidaturasDoUsuario.forEach((vaga) => {
     if (vaga.cargo === entrada) {
       encontrado = true
       console.log(`\nId: ${vaga.id}`);
@@ -50,11 +51,14 @@ const buscarCargo = (cargo) => {
 }
 
 // função para buscar a candidatura pelo status
-const buscarStatus = (status) => {
+const buscarStatus = (status, usuarioLogado) => {
+  const candidaturas = carregar();
+  const candidaturasDoUsuario = candidaturas.filter(vaga => vaga.usuario === usuarioLogado);
+
   const entrada = status.toUpperCase()
   let encontrado = false
 
-  candidaturas.forEach((vaga) => {
+  candidaturasDoUsuario.forEach((vaga) => {
     if (vaga.status === entrada) {
       encontrado = true
       console.log(`\nId: ${vaga.id}`);
@@ -71,10 +75,13 @@ const buscarStatus = (status) => {
 }
 
 // função para buscar a candidatura pela data de inscrição
-const buscarData = (data) => {
+const buscarData = (data, usuarioLogado) => {
+  const candidaturas = carregar();
+  const candidaturasDoUsuario = candidaturas.filter(vaga => vaga.usuario === usuarioLogado);
+
   let encontrado = false
 
-  candidaturas.forEach((vaga) => {
+  candidaturasDoUsuario.forEach((vaga) => {
     if (vaga.dataInscricao === data) {
       encontrado = true
       console.log(`\nId: ${vaga.id}`);
@@ -91,10 +98,13 @@ const buscarData = (data) => {
 }
 
 // função para buscar a candidatura pelo id
-const buscarId = (id) => {
+const buscarId = (id, usuarioLogado) => {
+  const candidaturas = carregar();
+  const candidaturasDoUsuario = candidaturas.filter(vaga => vaga.usuario === usuarioLogado);
+
   let encontrado = false
 
-  candidaturas.forEach((vaga) => {
+  candidaturasDoUsuario.forEach((vaga) => {
     if (vaga.id === id) {
       encontrado = true
       console.log(`Id: ${vaga.id}`);
@@ -110,12 +120,10 @@ const buscarId = (id) => {
   }
 }
 
-const buscar = {
+export {
   buscarNome,
   buscarCargo,
   buscarStatus,
   buscarData,
   buscarId,
 };
-
-export { buscar };

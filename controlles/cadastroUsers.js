@@ -1,5 +1,5 @@
 import fs from "fs"
-const caminho = '../bd/usuarios.json'
+const caminho = './bd/usuarios.json'
 
 // Função para carregar os usuários
 const carregar = () => {
@@ -47,5 +47,5 @@ const makeUsers = (name, email, password) => {
     }
 }
 
-const CadastroUsuarios = { carregar, makeUsers };
-export { CadastroUsuarios };
+
+export { carregar, makeUsers };

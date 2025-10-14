@@ -11,5 +11,5 @@ const verifyUser = (nome, senha) => {
         account.name === nameUser && account.password === password
     ); // retorna o resultado, se o usuário existir retorna true, se não retorna false.
 }
-const validacao = { verifyUser };
-export { validacao };
+
+export { verifyUser };

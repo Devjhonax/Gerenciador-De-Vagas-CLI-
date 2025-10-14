@@ -1,5 +1,5 @@
 import fs from "fs"
-const caminho = '../bd/dados.json'
+const caminho = './bd/dados.json'
 
 // Função para carregar as candidaturas
 const carregar = () => {
@@ -16,46 +16,48 @@ const salvarCandidatura = (dados) => {
 
 // class de candidatura 
 class Candidatura {
-    constructor(id, nomeEmpresa, dataInscricao, cargo, status) {
+    constructor(id, nomeEmpresa, dataInscricao, cargo, status, usuario) {
         this.id = id
         this.nomeEmpresa = nomeEmpresa
         this.dataInscricao = dataInscricao
         this.cargo = cargo
         this.status = status
+        this.usuario = usuario
     }
 }
 
 // função que salva a candidatura no banco de dados
-const criarCandidatura = (nome, inscricao, cargo, status) => {
+const criarCandidatura = (nome, inscricao, cargo, status, usuario) => {
     const candidaturas = carregar();
     let id = 0
 
     if (candidaturas.length === 0) {
-
+        id = 1;
     } else {
         const num = candidaturas.length - 1
         id = candidaturas[num].id + 1
     }
 
-    if (nome === undefined || inscricao === undefined || status === undefined || cargo === undefined) {
+    if (nome === undefined || inscricao === undefined || status === undefined || cargo === undefined || usuario === undefined) {
         console.error("Campo vazio, por favor preencha todos os campos.")
     } else {
         const name = nome.toUpperCase()
         const dataEntrada = inscricao.toString()
         const andamento = status.toUpperCase()
         const setor = cargo.toUpperCase()
+        const user = usuario.toUpperCase()
 
-        const validarCandidatura = candidaturas.some(candidatura => candidatura.nomeEmpresa === name && candidatura.cargo === setor)
+        // checa se a candidatura já existe para o mesmo usuário
+        const validarCandidatura = candidaturas.some(candidatura => candidatura.nomeEmpresa === name && candidatura.cargo === setor && candidatura.usuario === user)
 
         if (validarCandidatura) {
-            console.error("Esta candidatura já foi cadastrada.")
+            console.error("Esta candidatura já foi cadastrada por este usuário.")
             return;
         } else {
-            candidaturas.push(new Candidatura(id, name, dataEntrada, setor, andamento))
+            candidaturas.push(new Candidatura(id, name, dataEntrada, setor, andamento, user))
             salvarCandidatura(candidaturas)
             console.log("Sua candidatura foi salva com sucesso!");
         }
     }
 }
-const candidaturas = { carregar, salvarCandidatura, criarCandidatura };
-export { candidaturas };
+export { carregar, salvarCandidatura, criarCandidatura };

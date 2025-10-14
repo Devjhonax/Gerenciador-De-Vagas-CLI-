@@ -1,16 +1,16 @@
 import { carregar } from "./cadastro.js";
-
 //listagem de candidatura
-const listarCandidaturas = () => {
+const listarCandidaturas = (usuarioLogado) => {
     const candidaturas = carregar();
+    const candidaturasDoUsuario = candidaturas.filter(candidatura => candidatura.usuario === usuarioLogado);
 
-    if (candidaturas.length === 0) {
-        console.log("Nenhuma candidatura encontrada.");
+    if (candidaturasDoUsuario.length === 0) {
+        console.log("Nenhuma candidatura encontrada para este usuário.");
         return;
     }
 
-    console.log("\n=== LISTA DE CANDIDATURAS ===");
-    candidaturas.forEach((candidatura, index) => {
+    console.log("\n=== SUAS CANDIDATURAS ===");
+    candidaturasDoUsuario.forEach((candidatura, index) => {
         console.log(`\nCandidatura ${index + 1}:`);
         console.log(`Id: ${candidatura.id}`);
         console.log(`Empresa: ${candidatura.nomeEmpresa}`);
@@ -19,6 +19,4 @@ const listarCandidaturas = () => {
         console.log(`Status: ${candidatura.status}`);
     });
 }
-
-const listagem = { listarCandidaturas };
-export { listagem };
+export { listarCandidaturas };
