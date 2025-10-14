@@ -3,12 +3,12 @@ import { carregar } from "./cadastro.js";
 //listagem de candidatura
 const listarCandidaturas = () => {
     const candidaturas = carregar();
-    
+
     if (candidaturas.length === 0) {
         console.log("Nenhuma candidatura encontrada.");
         return;
     }
-    
+
     console.log("\n=== LISTA DE CANDIDATURAS ===");
     candidaturas.forEach((candidatura, index) => {
         console.log(`\nCandidatura ${index + 1}:`);
@@ -19,3 +19,6 @@ const listarCandidaturas = () => {
         console.log(`Status: ${candidatura.status}`);
     });
 }
+
+const listagem = { listarCandidaturas };
+export { listagem };

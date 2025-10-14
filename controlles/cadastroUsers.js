@@ -2,7 +2,7 @@ import fs from "fs"
 const caminho = '../bd/usuarios.json'
 
 // Função para carregar os usuários
-export const carregar = () => {
+const carregar = () => {
     if (fs.existsSync(caminho)) {
         return JSON.parse(fs.readFileSync(caminho, "utf-8"));
     }
@@ -46,3 +46,6 @@ const makeUsers = (name, email, password) => {
         }
     }
 }
+
+const CadastroUsuarios = { carregar, makeUsers };
+export { CadastroUsuarios };

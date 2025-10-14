@@ -109,3 +109,13 @@ const buscarId = (id) => {
     console.log(`Não existe nenhuma candidatura com esse requisito.`);
   }
 }
+
+const buscar = {
+  buscarNome,
+  buscarCargo,
+  buscarStatus,
+  buscarData,
+  buscarId,
+};
+
+export { buscar };

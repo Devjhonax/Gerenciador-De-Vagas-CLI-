@@ -13,3 +13,4 @@ const atualizar = (id, novoAndamento) => {
     salvarCandidatura(dados)
   }
 }
+export { atualizar };

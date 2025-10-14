@@ -2,7 +2,7 @@ import fs from "fs"
 const caminho = '../bd/dados.json'
 
 // Função para carregar as candidaturas
-export const carregar = () => {
+const carregar = () => {
     if (fs.existsSync(caminho)) {
         return JSON.parse(fs.readFileSync(caminho, "utf-8"));
     }
@@ -10,7 +10,7 @@ export const carregar = () => {
 }
 
 // Função para salvar as candidaturas
-export const salvarCandidatura = (dados) => {
+const salvarCandidatura = (dados) => {
     fs.writeFileSync(caminho, JSON.stringify(dados, null, 2), "utf8");
 }
 
@@ -26,7 +26,7 @@ class Candidatura {
 }
 
 // função que salva a candidatura no banco de dados
-export const criarCandidatura = (nome, inscricao, cargo, status) => {
+const criarCandidatura = (nome, inscricao, cargo, status) => {
     const candidaturas = carregar();
     let id = 0
 
@@ -57,3 +57,5 @@ export const criarCandidatura = (nome, inscricao, cargo, status) => {
         }
     }
 }
+const candidaturas = { carregar, salvarCandidatura, criarCandidatura };
+export { candidaturas };
