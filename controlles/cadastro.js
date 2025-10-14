@@ -10,7 +10,7 @@ export const carregar = () => {
 }
 
 // Função para salvar as candidaturas
-const salvarCandidatura = (dados) => {
+export const salvarCandidatura = (dados) => {
     fs.writeFileSync(caminho, JSON.stringify(dados, null, 2), "utf8");
 }
 
@@ -26,7 +26,7 @@ class Candidatura {
 }
 
 // função que salva a candidatura no banco de dados
-const criarCandidatura = (nome, inscricao, cargo, status) => {
+export const criarCandidatura = (nome, inscricao, cargo, status) => {
     const candidaturas = carregar();
     let id = 0
 
