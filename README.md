@@ -45,6 +45,6 @@ Com ele, você pode cadastrar todas as aplicações que realizou, registrar deta
 1. Clone o repositório.
 2. Entre na pasta e rode o arquivo "index.js"
 
-👤 Autores.
+## 👤 Autores.
 - Lider do projeto: Jhonathas
 - Colaboradores: Thayane, André, Cauã, Eduarda e Geiza
