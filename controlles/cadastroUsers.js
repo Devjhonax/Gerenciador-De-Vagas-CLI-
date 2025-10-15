@@ -38,14 +38,14 @@ const makeUsers = (name, email, password) => {
 
         if (validarUsuario) {
             console.error("Nome de usuário ou email já existente.")
-            return;
+            return false;
         } else {
-            users.push(new User(nome, eMail, senha))
-            saveUser(users)
-            console.log("Usuário criado com sucesso!");
+            const novoUsuario = new User(nome, eMail, senha);
+            users.push(novoUsuario);
+            saveUser(users);
+            return true
         }
     }
 }
-
 
 export { carregar, makeUsers };

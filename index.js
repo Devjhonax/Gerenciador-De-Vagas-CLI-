@@ -37,36 +37,57 @@ const iniciarPainel = (usuarioLogado) => {
                 const nomeEmpresa = readlineSync.question("Nome da Empresa: ");
                 const dataInscricao = readlineSync.question("Data de Inscricao (DD/MM): ");
                 const cargo = readlineSync.question("Cargo: ");
-                const status = readlineSync.question("Status (EX: NAO INICIOU, APROVADO, REPROVADO): ");
-                criarCandidatura(nomeEmpresa, dataInscricao, cargo, status, usuarioLogado);
+                console.log(`Status da vaga:`);
+                console.log(`1- NAO INICIOU`);
+                console.log(`2- APROVADO`);
+                console.log(`3- REPROVADO`);
+                let status = ''
+                const perguntaStatus = readlineSync.question("Digite a opcao correspondente: ");
+                switch (perguntaStatus) {
+                    case '1':
+                        status = "NAO INICIOU"
+                        criarCandidatura(nomeEmpresa, dataInscricao, cargo, status, usuarioLogado);
+                        break;
+                    case '2':
+                        status = "APROVADO"
+                        criarCandidatura(nomeEmpresa, dataInscricao, cargo, status, usuarioLogado);
+                        break;
+                    case '3':
+                        status = "REPROVADO"
+                        criarCandidatura(nomeEmpresa, dataInscricao, cargo, status, usuarioLogado);
+                        break;
+                    default:
+                        console.log("Por favor escolha uma opção valida. Tente novamente.");
+                        break;
+                }
                 break;
             case '3':
                 console.log("\n--- OPÇÕES DE BUSCA ---");
-                console.log("a. Buscar por Empresa");
-                console.log("b. Buscar por Cargo");
-                console.log("c. Buscar por Status");
-                console.log("d. Buscar por Data");
-                console.log("e. Buscar por ID");
+                console.log("1- Buscar por Empresa");
+                console.log("2- Buscar por Cargo");
+                console.log("3- Buscar por Status");
+                console.log("4- Buscar por Data");
+                console.log("5- Buscar por ID");
                 const opcaoBusca = readlineSync.question("Escolha a opcao de busca: ");
 
                 switch (opcaoBusca) {
-                    case 'a':
+                    case '1':
                         const nomeBusca = readlineSync.question("Digite o nome da empresa: ");
                         buscarNome(nomeBusca, usuarioLogado);
                         break;
-                    case 'b':
+                    case '2':
                         const cargoBusca = readlineSync.question("Digite o cargo: ");
                         buscarCargo(cargoBusca, usuarioLogado);
                         break;
-                    case 'c':
+                    case '3':
                         const statusBusca = readlineSync.question("Digite o status: ");
                         buscarStatus(statusBusca, usuarioLogado);
                         break;
-                    case 'd':
+                    case '4':
                         const dataBusca = readlineSync.question("Digite a data (DD/MM): ");
                         buscarData(dataBusca, usuarioLogado);
                         break;
-                    case 'e':
+                    case '5':
                         const idBusca = readlineSync.questionInt("Digite o ID: ");
                         buscarId(idBusca, usuarioLogado);
                         break;
@@ -76,8 +97,30 @@ const iniciarPainel = (usuarioLogado) => {
                 break;
             case '4':
                 const idAtualizar = readlineSync.questionInt("Digite o ID da candidatura para atualizar: ");
+                buscarId(idAtualizar, usuarioLogado);
+                console.log(`\nStatus da vaga:`);
+                console.log(`1- NAO INICIOU`);
+                console.log(`2- APROVADO`);
+                console.log(`3- REPROVADO`);
                 const novoStatus = readlineSync.question("Digite o novo status: ");
-                atualizar(idAtualizar, novoStatus, usuarioLogado);
+                let newStt = ''
+                switch (novoStatus) {
+                    case '1':
+                        newStt = "NAO INICIOU"
+                        atualizar(idAtualizar, newStt, usuarioLogado);
+                        break;
+                    case '2':
+                        newStt = "APROVADO"
+                        atualizar(idAtualizar, newStt, usuarioLogado);
+                        break;
+                    case '3':
+                        newStt = "REPROVADO"
+                        atualizar(idAtualizar, newStt, usuarioLogado);
+                        break;
+                    default:
+                        console.log("Por favor escolha uma opção valida. Tente novamente.");
+                        break;
+                }
                 break;
             case '5': // Lógica para exclusão
                 const nomeEmpresaApagar = readlineSync.question("Digite o nome da empresa para apagar a candidatura: ");
@@ -113,19 +156,9 @@ const menu = () => {
         const nome = readlineSync.question("Digite o nome de usuario desejado: ");
         const email = readlineSync.question("Digite o email: ");
         const senha = readlineSync.question("Digite a senha: ");
-        makeUsers(nome, email, senha);
-        console.log("\nPor favor, faça login com a sua nova conta.");
-        const nomeLogin = readlineSync.question("Digite seu nome de usuario: ");
-        const senhaLogin = readlineSync.question("Digite sua senha: ");
-
-        if (verifyUser(nomeLogin, senhaLogin)) {
-            console.log("\nLogin realizado com sucesso!");
-            iniciarPainel(nomeLogin.toUpperCase());
-        } else {
-            console.log("\nNome de usuario ou senha incorretos.");
+        if (makeUsers(nome, email, senha)) {
+            iniciarPainel(nome.toUpperCase());
         }
-    } else {
-        console.log("Opcao invalida. Reinicie o programa para tentar novamente.");
     }
 };
 

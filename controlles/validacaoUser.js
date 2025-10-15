@@ -12,4 +12,7 @@ const verifyUser = (nome, senha) => {
     ); // retorna o resultado, se o usuário existir retorna true, se não retorna false.
 }
 
+console.log(verifyUser("JHONTHAS", "senha123"));
+
+
 export { verifyUser };
